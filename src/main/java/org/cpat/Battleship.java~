@@ -1,0 +1,14 @@
+package org.cpat;
+
+class Battleship
+{ 
+  public static void main(String[] args)
+  {
+    //need a window for what game mode is
+    boolean local = true;
+    int level = 2;
+    
+    //initialize the game
+    GameView view = new GameView(new GameControllerLocal(), new GameModel(local, level), local);
+  }
+}

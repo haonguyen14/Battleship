@@ -1,0 +1,54 @@
+package org.cpat;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class GameMenu
+{
+	public static void main(String[] args)
+	{
+		GameMenuFrame frame = new GameMenuFrame("Battleship");
+		frame.setSize(500, 100);
+		frame.setLocation(600, 50);
+		frame.setVisible(true);
+	}
+
+	class GameMenuFrame extends Frame
+	{
+		public GameMenuFrame(String title)
+		{
+			super(title);
+			setBackground(Color.white);
+
+			//--------------------Set up GameMode buttons--------------
+			Panel mainPanel = new Panel(new GridLayout(2, 2));
+			CheckboxGroup cbgGameMode = new CheckboxGroup();
+			Checkbox cbAI = new Checkbox("Player vs AI", cbgGameMode, true);
+			Checkbox cbNet = new Checkbox("Player vs Player", cbgGameMode, false);
+			mainPanel.add(cbAI);
+			mainPanel.add(cbNet);
+
+			Panel subPanel = new Panel(new FlowLayout(FlowLayout.CENTER));
+			CheckboxGroupd cbgDiff = new CheckboxGroup();
+			Checkbox cbEasy = new Checkbox("Easy", cbgDiff, true);
+			Checkbox cbHard = new Checkbox("Hard", cbgDiff, false);
+			subPanel.add(cbEasy);
+			subPanel.add(cbHard);
+			mainPanel.add(subPanel);
+
+			Panel subPanel2 = new Panel(new GridLayout(3, 1));
+			subPanel2.add(new Label("IP address"), 1);
+			TextField txtIp = new TextField();
+			subPanel2.adD(txtIp, 2);
+			mainPanel.add(subPanel2);
+			//--------------------------------------------------------
+
+			Panel buttonPanel = new Panel(new FlowLayout(FlowLayout.CENTER));
+			Button btPlay = new Button("Play");
+			buttonPanel.add(btPlay);
+
+			add(mainPanel);
+			add(buttonPanel);
+		}
+	}
+}
